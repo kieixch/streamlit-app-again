@@ -50,9 +50,7 @@ if df is None:
 st.subheader("Pratinjau data")
 st.dataframe(df.head())
 
-target = st.selectbox("Pilih kolom target:", df.columns)
-X = df.drop(target, axis=1)
-y = df[target]
+
 
 #Sidebar: Preprocessing & Split
 st.sidebar.header("Preprocessing & Split")
@@ -60,12 +58,9 @@ test_size = st.sidebar.slider("Persentase Test Set (%)", min_value=10, max_value
 random_state = st.sidebar.number_input("Random state (integer)", value=42, step=1)
 stratify_option = st.sidebar.checkbox("Stratify split berdasarkan target (disarankan)", value=True)
 
-if 'target' not in df.columns:
-    st.error("Kolom target tidak ditemukan. Pastikan file CSV memiliki kolom bernama 'target' yang berisi label kelas (0/1 atau serupa).")
-    st.stop()
-
-X = df.drop(columns=['target'])
-y = df['target']
+target = st.selectbox("Pilih kolom target:", df.columns)
+X = df.drop(target, axis=1)
+y = df[target]
 
 st.write(f"Menekan split dengan test_size = {test_size}% (Train set = {100-test_size}%)")
 if stratify_option:
