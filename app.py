@@ -19,7 +19,7 @@ st.set_page_config(page_title="DSS Klasifikasi (KNN) - Breast Cancer", layout="w
 st.title("Decision Support System — Klasifikasi KNN")
 st.markdown(
     """
-    **Topik:** Prediksi diagnosis tumor payudara (Breast Cancer Wisconsin - Diagnostic).  
+    **Topik Default:** Prediksi diagnosis tumor payudara (Breast Cancer Wisconsin - Diagnostic).  
     **Metode:** K-Nearest Neighbors (KNN).  
     **Catatan:** Hanya untuk tujuan pendidikan / praktikum. Bukan untuk diagnosa medis.
     """
@@ -49,6 +49,10 @@ if df is None:
 
 st.subheader("Pratinjau data")
 st.dataframe(df.head())
+
+target = st.selectbox("Pilih kolom target:", df.columns)
+X = df.drop(target, axis=1)
+y = df[target]
 
 #Sidebar: Preprocessing & Split
 st.sidebar.header("Preprocessing & Split")
