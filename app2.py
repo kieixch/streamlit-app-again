@@ -16,26 +16,29 @@ st.set_page_config(page_title="Star/Galaxy Classification", layout="wide")
 st.title("⭐ Star / Galaxy / QSO Classification (Tabular + Image Detector)")
 st.markdown("""
 **Metode:** K-Nearest Neighbors  
-**Catatan:** 
-obj_ID = Object Identifier, the unique value that identifies the object in the image catalog used by the CAS
-alpha = Right Ascension angle (at J2000 epoch)
-delta = Declination angle (at J2000 epoch)
-u = Ultraviolet filter in the photometric system
-g = Green filter in the photometric system
-r = Red filter in the photometric system
-i = Near Infrared filter in the photometric system
-z = Infrared filter in the photometric system
-run_ID = Run Number used to identify the specific scan
-rereun_ID = Rerun Number to specify how the image was processed
-cam_col = Camera column to identify the scanline within the run
-field_ID = Field number to identify each field
-spec_obj_ID = Unique ID used for optical spectroscopic objects (this means that 2 different observations with the same spec_obj_ID must share the output class)
-class = object class (galaxy, star or quasar object)
-redshift = redshift value based on the increase in wavelength
-plate = plate ID, identifies each plate in SDSS
-MJD = Modified Julian Date, used to indicate when a given piece of SDSS data was taken
-fiber_ID = fiber ID that identifies the fiber that pointed the light at the focal plane in each observation.  
+
+**Catatan:**  
+
+- **obj_ID**: Object Identifier, nilai unik yang mengidentifikasi objek pada katalog gambar CAS  
+- **alpha**: Right Ascension angle (epoch J2000)  
+- **delta**: Declination angle (epoch J2000)  
+- **u**: Ultraviolet filter dalam sistem fotometrik  
+- **g**: Green filter dalam sistem fotometrik  
+- **r**: Red filter dalam sistem fotometrik  
+- **i**: Near Infrared filter dalam sistem fotometrik  
+- **z**: Infrared filter dalam sistem fotometrik  
+- **run_ID**: Run Number yang mengidentifikasi pemindaian tertentu  
+- **rereun_ID**: Rerun Number yang menunjukkan bagaimana gambar diproses  
+- **cam_col**: Camera column yang mengidentifikasi scanline dalam run  
+- **field_ID**: Field number untuk tiap field  
+- **spec_obj_ID**: Unique ID untuk objek spektroskopi optik (dua observasi dengan spec_obj_ID sama memiliki class output yang sama)  
+- **class**: Kelas objek (galaxy, star, atau quasar)  
+- **redshift**: Nilai redshift berdasarkan pergeseran panjang gelombang  
+- **plate**: Plate ID yang mengidentifikasi tiap plate di SDSS  
+- **MJD**: Modified Julian Date untuk menunjukkan waktu pengambilan data  
+- **fiber_ID**: Fiber ID yang mengidentifikasi fiber yang menangkap cahaya pada setiap observasi  
 """)
+
 
 # ===================================================================
 # SYNTHETIC IMAGE GENERATOR (NO CV2)
